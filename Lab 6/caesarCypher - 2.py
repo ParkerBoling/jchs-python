@@ -1,7 +1,21 @@
 # INPUT #
 '''
 sentence
-sh
+shift amount
+shift direction
+to continue or not
+'''
+# PROCESS #
+'''
+convert character into unicode
+shift
+convert back to alphabetical character
+ask to continue
+'''
+# OUTPUT #
+'''
+shifted text
+ask to continue
 '''
 
 def caesarCipher(text, shift, dir):
