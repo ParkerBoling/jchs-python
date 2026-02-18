@@ -19,34 +19,37 @@ ask to continue
 '''
 
 def caesarCipher(text, shift, dir):
-  dir = dir.lower()
-  if dir == "left":
-    shift *= -1
-  
-  result = ""
+    dir = dir.lower()
+    if dir == "left" or dir == "backwards":
+        shift *= -1
+    elif dir == "right" or dir == "forwards":
+        shift = shift
+    else:
+      
+    
+    result = ""
 
-  for char in text:
-      if char.isalpha():
-          if char.isupper():
-              start = ord('A')
-          else:
-              start = ord('a')
+    for char in text:
+        if char.isalpha():
+        if char.isupper():
+            start = ord('A')
+        else:
+            start = ord('a')
+        
+        encryptedChar = chr((ord(char) - start + shift) % 26 + start)
+        result += encryptedChar
+        else:
+            result += char
 
-          encryptedChar = chr((ord(char) - start + shift) % 26 + start)
-          result += encryptedChar
-      else:
-          result += char
-
-  return result
+    return result
 
 def main():
-  choice = "yes"
+    choice = "yes"
 
-  while choice.lower() == "yes":
-    text = input("Enter a word, phrase, or sentence: ")
-    shift = int(input("Enter a shift value: "))
-    dir = input("Enter the shift direction: ")
-    
+    while choice.lower() == "yes":
+        text = input("Enter a word, phrase, or sentence: ")
+        shift = int(input("Enter a shift value: "))
+        dir = input("Enter the shift direction: ")
 
     encrypted = caesarCipher(text, shift, dir)
     print("Encrypted sentence:", encrypted)
