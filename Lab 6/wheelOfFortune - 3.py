@@ -31,15 +31,8 @@ ____r ___ _r____
 import random
 
 def getPuzzle():
-    """This function returns a tuple (Category, Phrase) that can be used to play a simple game of like Wheel of Fortune."""
-    puzzles = [("Albums", "The College Dropout"), ("Albums", "Late Registration"), ("Albums", "Graduation"), ("Albums", "My Beautiful Dark Twisted Fantasy"), ("Albums", "Yeezus"), ("Albums", "Watch the Throne"), ("Albums", "The Life of Pablo"), ("Albums", "ye"), ("Albums", "Kids See Ghosts"), ("Albums", "Jesus is King"), ("Albums", "Donda"), ("Albums", "Vultures"), ("Albums", "Bully"), ("Songs", 'All Falls Down'),  ("Songs", 'We Major'),  ("Songs", 'Diamonds From Sierra Leone'),  ("Songs", "Can't Tell Me Nothing"), ("Songs", "On Sight"), ("Features", "Playboi Carti"), ("Features", "Jay-Z"), ("Features", "Travis Scott"), ("Features", "Kid Cudi")]
-    index = random.randint(0, len(puzzles)-1)
-    return puzzles[index]
-
-def displayPuzzle(name):
-    """This function returns a tuple (Category, Phrase) that can be used to play a simple game of like Wheel of Fortune."""
-    puzzles = [ ("Action Movie", 'Mad Max: Fury Road'),  ("Action Movie", 'Die Hard'),  ("Action Movie", 'John Wick'),  ("Action Movie", 'Enter the Dragon')]
     puzzles = [
+        # albums
         ("Albums", "The College Dropout"),
         ("Albums", "Late Registration"),
         ("Albums", "Graduation"),
@@ -53,10 +46,17 @@ def displayPuzzle(name):
         ("Albums", "Donda"),
         ("Albums", "Vultures"),
         ("Albums", "Bully"),
-        ("Action Movie", 'Mad Max: Fury Road'),
-        ("Action Movie", 'Die Hard'),
-        ("Action Movie", 'John Wick'),
-        ("Action Movie", 'Enter the Dragon')
+        # songs
+        ("Songs", 'All Falls Down'),
+        ("Songs", 'We Major'),
+        ("Songs", 'Diamonds From Sierra Leone'),
+        ("Songs", "Can't Tell Me Nothing")
+        ("Songs", "On Sight"),
+        # features
+        ("Features", "Playboi Carti"),
+        ("Features", "Jay-Z"),
+        ("Features", "Travis Scott"),
+        ("Features", "Kid Cudi")
         ]
     return random.choice(puzzles)
 
