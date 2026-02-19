@@ -32,14 +32,29 @@ import random
 
 def getPuzzle():
     """This function returns a tuple (Category, Phrase) that can be used to play a simple game of like Wheel of Fortune."""
-    puzzles = [("Albums", "The College Dropout"), ("Albums", "Late Registration"), ("Albums", "Graduation"), ("Albums", "My Beautiful Dark Twisted Fantasy"), ("Albums", "Yeezus"), ("Albums", "Watch the Throne"), ("Albums", "The Life of Pablo"), ("Albums", "ye"), ("Albums", "Kids See Ghosts"), ("Albums", "Jesus is King"), ("Albums", "Donda"), ("Albums", "Vultures"), ("Albums", "Bully"), ("Action Movie", 'Mad Max: Fury Road'),  ("Action Movie", 'Die Hard'),  ("Action Movie", 'John Wick'),  ("Action Movie", 'Enter the Dragon')]
+    puzzles = [
+        ("Albums", "The College Dropout"),
+        ("Albums", "Late Registration"),
+        ("Albums", "Graduation"),
+        ("Albums", "My Beautiful Dark Twisted Fantasy"),
+        ("Albums", "Yeezus"),
+        ("Albums", "Watch the Throne"),
+        ("Albums", "The Life of Pablo"),
+        ("Albums", "ye"),
+        ("Albums", "Kids See Ghosts"),
+        ("Albums", "Jesus is King"),
+        ("Albums", "Donda"),
+        ("Albums", "Vultures"),
+        ("Albums", "Bully"),
+        ("Action Movie", 'Mad Max: Fury Road'),
+        ("Action Movie", 'Die Hard'),
+        ("Action Movie", 'John Wick'),
+        ("Action Movie", 'Enter the Dragon')]
     index = random.randint(0, len(puzzles)-1)
     return puzzles[index]
 
 def displayPuzzle(name):
-    """This function returns a tuple (Category, Phrase) that can be used to play a simple game of like Wheel of Fortune."""
-    puzzles = [("Famous People", "Abraham Lincoln"), ("Famous People", "Oprah Winfrey"), ("Famous People", "Will Smith"), ("Famous People", "Marilyn Monroe"), ("Action Movie", 'Mad Max: Fury Road'),  ("Action Movie", 'Die Hard'),  ("Action Movie", 'John Wick'),  ("Action Movie", 'Enter the Dragon')]
-    return random.choice(puzzles)
+
 
 
 def showGuesses():
