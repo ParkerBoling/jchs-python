@@ -78,7 +78,7 @@ def displayPuzzle(category):
     print("Welcome to Wheel of Fortune! (ye edition)")
     print("You have to guess the phrase before you make 7 wrong guesses")
     print("Good luck!")
-    print("\nYour puzzle is from the category:", category)
+    print("\nYour puzzle is from the ye category:", category)
 
 def showBoard(guesses, phrase):
     board = ""
@@ -103,14 +103,17 @@ def main():
 
     displayPuzzle(category)
 
+    # game code
     while wrongGuesses < maxWrong:
         boardComplete = True
         showBoard(guesses, phrase)
         
+        # check if guesses make the phrase
         for letter in phrase:
             if letter.isalpha() and letter.lower() not in guesses:
                 boardComplete = False
         
+        # if complete, congrats
         if boardComplete:
             print("\nYou Win!")
             print("The phrase was:", phrase)
@@ -122,6 +125,7 @@ def main():
         if not guess.isalpha() or len(guess) != 1:
             print("Input invalid. Enter max one letter.")
             continue
+        
         
         if guess in guesses:
             print("you already guessed that letter, try again.")
