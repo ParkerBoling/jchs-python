@@ -60,6 +60,14 @@ def getPuzzle():
         ]
     return random.choice(puzzles)
 
+def displayPuzzle():
+    category, phrase = getPuzzle()
+
+    print("Welcome to Wheel of Fortune! (ye edition)")
+    print("You have to guess the phrase before you make 7 wrong guesses")
+    print("Good luck!")
+    print("\nYour puzzle is from the category:", category)
+
 def showBoard(guesses, phrase):
     board = ""
 
@@ -76,6 +84,10 @@ def showGuesses(guesses):
 
 
 def main():
+    
+    guesses = []
+    wrong_guesses = 0
+    max_wrong = 7
 
 
 if __name__ == "__main__":
