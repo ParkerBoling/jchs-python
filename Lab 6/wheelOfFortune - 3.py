@@ -5,7 +5,7 @@
 # PROCESS #
 '''
 get random number
-use number to select categoruy
+use number to select category
 get guess
 check if in phrase
 if in phrase place letter in a set of underscores
