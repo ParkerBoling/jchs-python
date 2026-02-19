@@ -52,11 +52,25 @@ def getPuzzle():
         ("Songs", 'Diamonds From Sierra Leone'),
         ("Songs", "Can't Tell Me Nothing")
         ("Songs", "On Sight"),
+        ("Songs", "Runaway"),
+        ("Songs", "All of the Lights"),
+        ("Songs", "Hurricane"),
+        ("Songs", "Life of the Party"),
+        ("Songs", "Two Words"),
+        ("Songs", "Welcome to Heartbreak"),
         # features
         ("Features", "Playboi Carti"),
         ("Features", "Jay-Z"),
         ("Features", "Travis Scott"),
-        ("Features", "Kid Cudi")
+        ("Features", "Kid Cudi"),
+        ("Features", "Pusha T"),
+        ("Features", "Nicki Minaj"),
+        ("Features", "Rick Ross"),
+        ("Features", "Common"),
+        ("Features", "Consequence"),
+        ("Features", "Andre Three-Thousand"),
+        ("Features", "Kendrick Lamar")
+        ("Features", "The Weeknd"),
         ]
     return random.choice(puzzles)
 
