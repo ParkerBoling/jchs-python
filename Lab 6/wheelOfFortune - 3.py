@@ -50,7 +50,7 @@ def getPuzzle():
         ("Songs", 'All Falls Down'),
         ("Songs", 'We Major'),
         ("Songs", 'Diamonds From Sierra Leone'),
-        ("Songs", "Can't Tell Me Nothing")
+        ("Songs", "Can't Tell Me Nothing"),
         ("Songs", "On Sight"),
         ("Songs", "Runaway"),
         ("Songs", "All of the Lights"),
@@ -74,9 +74,7 @@ def getPuzzle():
         ]
     return random.choice(puzzles)
 
-def displayPuzzle():
-    category, phrase = getPuzzle()
-
+def displayPuzzle(category):
     print("Welcome to Wheel of Fortune! (ye edition)")
     print("You have to guess the phrase before you make 7 wrong guesses")
     print("Good luck!")
@@ -98,11 +96,50 @@ def showGuesses(guesses):
 
 
 def main():
-    
+    category, phrase = getPuzzle()
     guesses = []
-    wrong_guesses = 0
-    max_wrong = 7
+    wrongGuesses = 0
+    maxWrong = 7
 
+    displayPuzzle(category)
+
+    while wrongGuesses < maxWrong:
+        boardComplete = True
+        showBoard(guesses, phrase)
+        
+        for letter in phrase:
+            if letter.isalpha() and letter.lower() not in guesses:
+                boardComplete = False
+        
+        if boardComplete:
+            print("\nYou Win!")
+            print("The phrase was:", phrase)
+            return
+        
+        guess = input("\nWhat letter would you like? ").lower()
+        
+        # check if more than one letter
+        if not guess.isalpha() or len(guess) != 1:
+            print("Input invalid. Enter max one letter.")
+            continue
+        
+        if guess in guesses:
+            print("you already guessed that letter, try again.")
+            continue
+        
+        guesses.append(guess)
+        
+        if guess not in phrase.lower():
+            wrongGuesses += 1
+            print("Wrong Guess!")
+            print("You have", maxWrong - wrongGuesses, "wrong guesses left.")
+        
+        showGuesses(guesses)
+
+    # if loop ends, lose
+    print("\nYou lose")
+    print("The phrase was:", phrase)
+        
 
 if __name__ == "__main__":
     main()
