@@ -69,7 +69,7 @@ def getPuzzle():
         ("Features", "Common"),
         ("Features", "Consequence"),
         ("Features", "Andre Three-Thousand"),
-        ("Features", "Kendrick Lamar")
+        ("Features", "Kendrick Lamar"),
         ("Features", "The Weeknd"),
         ]
     return random.choice(puzzles)
