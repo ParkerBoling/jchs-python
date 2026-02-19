@@ -31,7 +31,6 @@ ____r ___ _r____
 import random
 
 def getPuzzle():
-    """This function returns a tuple (Category, Phrase) that can be used to play a simple game of like Wheel of Fortune."""
     puzzles = [
         ("Albums", "The College Dropout"),
         ("Albums", "Late Registration"),
@@ -49,9 +48,9 @@ def getPuzzle():
         ("Action Movie", 'Mad Max: Fury Road'),
         ("Action Movie", 'Die Hard'),
         ("Action Movie", 'John Wick'),
-        ("Action Movie", 'Enter the Dragon')]
-    index = random.randint(0, len(puzzles)-1)
-    return puzzles[index]
+        ("Action Movie", 'Enter the Dragon')
+        ]
+    return random.choice(puzzles)
 
 def displayPuzzle(name):
 
