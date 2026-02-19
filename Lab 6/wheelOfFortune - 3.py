@@ -52,13 +52,6 @@ def getPuzzle():
         ]
     return random.choice(puzzles)
 
-def displayPuzzle(name):
-
-
-
-def showGuesses():
-    
-
 def showBoard(guesses, phrase):
     board = ""
 
@@ -69,6 +62,10 @@ def showBoard(guesses, phrase):
             board += "_"
 
     print("\n" + board)
+
+def showGuesses(guesses):
+    print("You have guessed:", guesses)
+
 
 def main():
 
