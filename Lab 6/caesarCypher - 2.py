@@ -41,8 +41,8 @@ def caesarCipher(text, shift, dir):
         
         encryptedChar = chr((ord(char) - start + shift) % 26 + start)
         result += encryptedChar
-        else:
-            result += char
+            else:
+                result += char
 
     return result
 
