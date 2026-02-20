@@ -28,7 +28,7 @@ def caesarCipher(text, shift, dir):
     elif dir == "right" or dir == "forwards":
         shift = shift
     else:
-      
+      print("INVALID SHIFT INPUT...")
     
     result = ""
 
