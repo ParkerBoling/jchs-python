@@ -1,0 +1,39 @@
+# in
+# loan amount
+# annual rate
+# process
+# validate input
+# turn annual rate into monthly rate
+# calculate payment
+# output payment in a table style format
+
+def validateFloat(prompt):
+    while True:
+        try:
+            value = float(input(prompt))
+            if value > 0:
+                return value
+            else:
+                print("Value must be greater than 0. Please try again.")
+        except ValueError:
+            print("Invalid input. Please enter a number value")
+
+def paymentCalculator(loanAmt, annualRate, years):
+    monthlyRate = annualRate / 100 / 12
+    months = years * 12
+    
+    payment = (monthlyRate * loanAmt) / (1 - (1 + monthlyRate) ** (-months))
+    return payment
+
+def main():
+    loanAmt = validateFloat("Enter loan amount: $")
+    annualRate = validateFloat("Enter annual interest rate (%): ")
+    
+    print("\nLoan Term	Monthly Payment")
+    
+    for years in [4, 5, 6]:
+        payment = (paymentCalculator(loanAmt, annualRate, years))
+        print(f"{years} years		${payment:,.2f}")
+    
+if __name__ == "__main__":
+    main()

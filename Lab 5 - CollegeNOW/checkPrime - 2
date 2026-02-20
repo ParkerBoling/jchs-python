@@ -1,0 +1,15 @@
+# in
+# nonzero positive number
+# process
+# validate input
+# check if prime
+# ask to check another number
+# output
+# if prime
+
+def validateInteger(num):
+    if num < 0:
+        print("INVALID INPUT, PLEASE INPUT A POSITIVE INTEGER")
+    else:
+        return
+        
