@@ -27,6 +27,8 @@ You have guessed: ['r']
 
 ____r ___ _r____
 '''
+# JACKSON --> PUZZLES AND VALIDATION
+# PARKER --> DISPLAY GAME
 
 import random
 
