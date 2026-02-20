@@ -21,15 +21,17 @@ ask to continue
 # JACKSON --> MAIN
 # PARKER --> CIPHER
 
-def caesarCipher(text, shift, dir):
-    dir = dir.lower()
-    if dir == "left" or dir == "backwards":
+def caesarCipher(text, shift, direction):
+    direction = direction.lower()
+
+    if direction in ["left", "backwards"]:
         shift *= -1
-    elif dir == "right" or dir == "forwards":
-        shift = shift
+    elif direction in ["right", "forwards"]:
+        pass
     else:
-      print("INVALID SHIFT INPUT...")
-    
+        print("INVALID SHIFT INPUT...")
+        return text
+
     result = ""
 
     for char in text:
@@ -38,13 +40,14 @@ def caesarCipher(text, shift, dir):
                 start = ord('A')
             else:
                 start = ord('a')
-        
-        encryptedChar = chr((ord(char) - start + shift) % 26 + start)
-        result += encryptedChar
-            else:
-                result += char
+
+            encryptedChar = chr((ord(char) - start + shift) % 26 + start)
+            result += encryptedChar
+        else:
+            result += char
 
     return result
+
 
 def main():
     choice = "yes"
@@ -52,13 +55,14 @@ def main():
     while choice.lower() == "yes":
         text = input("Enter a word, phrase, or sentence: ")
         shift = int(input("Enter a shift value: "))
-        dir = input("Enter the shift direction: ")
+        direction = input("Enter the shift direction (left/right, backwards/forwards): ")
 
-    encrypted = caesarCipher(text, shift, dir)
-    print("Encrypted sentence:", encrypted)
+        encrypted = caesarCipher(text, shift, direction)
+        print("Encrypted sentence:", encrypted)
 
-    choice = input("Would you like to encode another message? (yes/no): ")
-    print()
+        choice = input("Would you like to encode another message? (yes/no): ")
+        print()
+
 
 if __name__ == "__main__":
-  main()
+    main()
