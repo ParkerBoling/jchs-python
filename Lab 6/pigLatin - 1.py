@@ -15,6 +15,9 @@
 # -- output -- #
 # translated sentence
 # ask to continue
+
+# JACKSON --> MAIN AND CONSONANT STUFF
+# PARKER --> CLEANING AND SHIFTING
     
 def cleanWord(sentence):
     cleaned = ""
