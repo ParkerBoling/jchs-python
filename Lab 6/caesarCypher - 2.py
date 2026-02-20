@@ -18,6 +18,9 @@ shifted text
 ask to continue
 '''
 
+# JACKSON --> MAIN
+# PARKER --> CIPHER
+
 def caesarCipher(text, shift, dir):
     dir = dir.lower()
     if dir == "left" or dir == "backwards":
