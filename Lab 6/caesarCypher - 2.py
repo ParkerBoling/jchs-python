@@ -34,10 +34,10 @@ def caesarCipher(text, shift, dir):
 
     for char in text:
         if char.isalpha():
-        if char.isupper():
-            start = ord('A')
-        else:
-            start = ord('a')
+            if char.isupper():
+                start = ord('A')
+            else:
+                start = ord('a')
         
         encryptedChar = chr((ord(char) - start + shift) % 26 + start)
         result += encryptedChar
