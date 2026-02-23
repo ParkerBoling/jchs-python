@@ -7,9 +7,39 @@
 # output
 # if prime
 
+import math
+isPrime = True
+
 def validateInteger(num):
     if num < 0:
         print("INVALID INPUT, PLEASE INPUT A POSITIVE INTEGER")
     else:
-        return
+        return num
+
+def isPrime(num):
+    if num <= 1:
+        return False
+    if num == 2:
+        return False
+    if num % 2 == 0:
+        return False
+    for i in range(3, int(math.sqrt(num)) + 1, 2):
+        if num % i == 0:
+            return False
+    return True
+
+def main():
+    try:
+        numInput = int(input("Enter a POSITIVE INTEGER: "))
+        num = validateInteger(numInput)
+        if isPrime(num) == True:
+            print(f"{num} is PRIME")
+        else:
+            print(f"{num} is NOT PRIME")
+    except ValueError:
+        print("INVALID INPUT, PLEASE ENTER A VALID INTEGER")
         
+
+if __name__ == "__main__":
+    main()
+
