@@ -29,16 +29,20 @@ def isPrime(num):
     return True
 
 def main():
-    try:
-        numInput = int(input("Enter a POSITIVE INTEGER: "))
-        num = validateInteger(numInput)
-        if isPrime(num) == True:
-            print(f"{num} is PRIME")
-        else:
-            print(f"{num} is NOT PRIME")
-    except ValueError:
-        print("INVALID INPUT, PLEASE ENTER A VALID INTEGER")
-        
+    choice = "yes"
+
+    while choice.lower() == "yes":
+        try:
+            numInput = int(input("Enter a POSITIVE INTEGER: "))
+            num = validateInteger(numInput)
+            if isPrime(num) == True:
+                print(f"{num} is PRIME")
+            else:
+                print(f"{num} is NOT PRIME")
+        except ValueError:
+            print("INVALID INPUT, PLEASE ENTER A VALID INTEGER")
+        choice = input("Would you like to encode another message? (yes/no): ")
+
 
 if __name__ == "__main__":
     main()

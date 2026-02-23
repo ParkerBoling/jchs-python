@@ -1,0 +1,46 @@
+# INPUT #
+'''
+number of sticks
+'''
+# PROCESS #
+'''
+init amt of stick var
+get amt to remove
+remove from stick var
+display board
+display whose turn is next
+'''
+# OUTPUT #
+'''
+show intro message
+announce player one turn
+show sticks
+ask amt to remove (1, 2, 3)
+'''
+def validatePlay(playerInput):
+    try:
+        if playerInput >= 1 and playerInput <= 3 and playerInput <= sticks:
+            return True:
+    except:
+        print("Please enter a VALID INTEGER")
+
+def displayBoard():
+    sticks = 11
+
+    if sticks > 0:
+        board = ""
+        for left in sticks:
+            board += "|"
+    else:
+        
+    
+
+            
+            
+
+def main():
+    print("Welcome to Nim!")
+    print("\nThere are 11 sticks in a pile.")
+    print("On each turn, you may remove 1, 2, or 3 sticks.")
+    print("Whoever removes the last stick wins!")
+    
