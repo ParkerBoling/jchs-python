@@ -17,30 +17,75 @@ announce player one turn
 show sticks
 ask amt to remove (1, 2, 3)
 '''
-def validatePlay(playerInput):
-    try:
-        if playerInput >= 1 and playerInput <= 3 and playerInput <= sticks:
-            return True:
-    except:
-        print("Please enter a VALID INTEGER")
 
-def displayBoard():
-    sticks = 11
+import random
 
-    if sticks > 0:
-        board = ""
-        for left in sticks:
-            board += "|"
-    else:
-        
-    
-
-            
-            
-
-def main():
-    print("Welcome to Nim!")
-    print("\nThere are 11 sticks in a pile.")
+def introNim():
+    print("         Welcome to Nim!")
+    print("There are 11 sticks in a pile.")
     print("On each turn, you may remove 1, 2, or 3 sticks.")
     print("Whoever removes the last stick wins!")
-    
+
+def validatePlay(playerInput, sticks):
+    if playerInput >= 1 and playerInput <= 3 and playerInput <= sticks:
+        return True
+    else:
+        return False
+
+def displayBoard(sticks):
+    board = ""
+    for i in range(sticks):
+        board += "| "
+    print("Sticks remaining:", sticks)
+    print(board)
+
+def computerTurn(sticks):
+    computer = random.randint(1, 3)
+    if computer > sticks:
+        computer = sticks
+    return computer
+
+
+def main():
+    introNim()
+    sticks = 11
+    end = False
+
+    while not end:
+          
+        # PLAYER TURN
+        displayBoard(sticks)
+        
+        valid = False
+        while not valid:
+            try:
+                play = int(input("How many sticks would you like to remove (1-3)? "))
+                valid = validatePlay(play, sticks)
+                if not valid:
+                    print("Invalid move. Try again.")
+            except:
+                print("Please enter a valid integer.")
+        
+        sticks -= play
+        
+        if sticks == 0:
+            displayBoard(sticks)
+            print("You removed the last stick! You win!")
+            break
+        
+        # COMPUTER TURN
+        compPlay = computerTurn(sticks)
+        print("Computer removes", compPlay, "stick(s).")
+        sticks -= compPlay
+        
+        if sticks == 0:
+            displayBoard(sticks)
+            print("Computer removed the last stick! You lost.")
+            break
+
+if __name__ == "__main__":
+    main()
+
+        
+
+
