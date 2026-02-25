@@ -1,0 +1,154 @@
+# INPUT #
+'''
+User presses Enter to roll dice
+User chooses to roll again (r) or pass (p)
+Random dice values (1–6 for each die)
+Random computer decision (1 or 2)
+'''
+# PROCESS #
+'''
+While neither score is 100 or more:
+PLAYER TURN:
+Roll two dice
+If both dice are 1:
+Reset playerScore to 0
+End turn
+Else if one die is 1:
+Add nothing
+End turn
+Else:
+Add dice total to playerScore
+Ask player to roll again or pass
+Check if playerScore >= 100
+If yes - Player wins - End game
+COMPUTER TURN:
+Roll two dice
+If both dice are 1:
+Reset computerScore to 0
+End turn
+Else if one die is 1:
+Add nothing
+End turn
+Else:
+Add dice total to computerScore
+Generate random number (1 or 2)
+1 - roll again
+2 - pass
+Check if computerScore >= 100
+If yes - Computer wins → End game
+'''
+# OUTPUT #
+'''
+Welcome message and game rules
+Each turn:
+    Display current scores
+    Display dice rolled
+    Display points gained (if any)
+    Announce when a 1 or double 1 is rolled
+    Announce when player or computer passes
+At end of game:
+    Announce winner (first to 100 points)
+'''
+
+import random
+
+def intro():
+    print("Welcome to the Dice Game Pig!")
+    print("First to reach 100 points wins.")
+    print("\nRules:")
+    print("- Roll two dice.")
+    print("- If no 1 appears, add the total to your score.")
+    print("- If one 1 appears, you gain 0 points and your turn ends.")
+    print("- If two 1s appear, your total score resets to 0.")
+
+def rollDice():
+    die1 = random.randint(1, 6)
+    die2 = random.randint(1, 6)
+    return die1, die2
+
+def playerTurn(score):
+    turn_over = False
+    
+    while not turn_over:
+        input("Press Enter to roll the dice...")
+        d1, d2 = rollDice()
+        print("You rolled:", d1, "and", d2)
+        
+        if d1 == 1 and d2 == 1:
+            print("Double 1s! Your total score resets to 0.")
+            score = 0
+            turn_over = True
+        
+        elif d1 == 1 or d2 == 1:
+            print("A single 1! No points this turn.")
+            turn_over = True
+        
+        else:
+            total = d1 + d2
+            score += total
+            print("You gained", total, "points.")
+            print("Your total score is now:", score)
+            
+            choice = input("Roll again (r) or pass (p)? ").lower()
+            if choice == "p":
+                turn_over = True
+    
+    return score
+
+def computerTurn(score):
+    print("\nComputer's turn...")
+    turn_over = False
+    
+    while not turn_over:
+        d1, d2 = rollDice()
+        print("Computer rolled:", d1, "and", d2)
+        
+        if d1 == 1 and d2 == 1:
+            print("Computer rolled double 1s! Score resets to 0.")
+            score = 0
+            turn_over = True
+        
+        elif d1 == 1 or d2 == 1:
+            print("Computer rolled a single 1! Turn over.")
+            turn_over = True
+        
+        else:
+            total = d1 + d2
+            score += total
+            print("Computer gains", total, "points.")
+            print("Computer total score:", score)
+            
+            decision = random.randint(1, 2)
+            if decision == 2:
+                print("Computer decides to pass.")
+                turn_over = True
+            else:
+                print("Computer rolls again...")
+    
+    return score
+
+def main():
+    intro()
+    playerScore = 0
+    computerScore = 0
+    
+    while playerScore < 100 and computerScore < 100:
+        print("\n------------------------")
+        print("Your Score:", playerScore)
+        print("Computer Score:", computerScore)
+        print("------------------------\n")
+        
+        playerScore = playerTurn(playerScore)
+        
+        if playerScore >= 100:
+            print("\nYou reached 100 points! You win!")
+            break
+        
+        computerScore = computerTurn(computerScore)
+        
+        if computerScore >= 100:
+            print("\nComputer reached 100 points! Computer wins!")
+            break
+
+if __name__ == "__main__":
+    main()
