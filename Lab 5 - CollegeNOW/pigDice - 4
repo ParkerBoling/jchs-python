@@ -53,7 +53,7 @@ At end of game:
 import random
 
 def intro():
-    print("Welcome to the Dice Game Pig!")
+    print("Welcome to the Pig!")
     print("First to reach 100 points wins.")
     print("\nRules:")
     print("- Roll two dice.")
@@ -67,9 +67,9 @@ def rollDice():
     return die1, die2
 
 def playerTurn(score):
-    turn_over = False
+    turnOver = False
     
-    while not turn_over:
+    while not turnOver:
         input("Press Enter to roll the dice...")
         d1, d2 = rollDice()
         print("You rolled:", d1, "and", d2)
@@ -77,11 +77,11 @@ def playerTurn(score):
         if d1 == 1 and d2 == 1:
             print("Double 1s! Your total score resets to 0.")
             score = 0
-            turn_over = True
+            turnOver = True
         
         elif d1 == 1 or d2 == 1:
             print("A single 1! No points this turn.")
-            turn_over = True
+            turnOver = True
         
         else:
             total = d1 + d2
@@ -91,26 +91,26 @@ def playerTurn(score):
             
             choice = input("Roll again (r) or pass (p)? ").lower()
             if choice == "p":
-                turn_over = True
+                turnOver = True
     
     return score
 
 def computerTurn(score):
     print("\nComputer's turn...")
-    turn_over = False
+    turnOver = False
     
-    while not turn_over:
+    while not turnOver:
         d1, d2 = rollDice()
         print("Computer rolled:", d1, "and", d2)
         
         if d1 == 1 and d2 == 1:
             print("Computer rolled double 1s! Score resets to 0.")
             score = 0
-            turn_over = True
+            turnOver = True
         
         elif d1 == 1 or d2 == 1:
             print("Computer rolled a single 1! Turn over.")
-            turn_over = True
+            turnOver = True
         
         else:
             total = d1 + d2
@@ -121,7 +121,7 @@ def computerTurn(score):
             decision = random.randint(1, 2)
             if decision == 2:
                 print("Computer decides to pass.")
-                turn_over = True
+                turnOver = True
             else:
                 print("Computer rolls again...")
     
@@ -133,10 +133,8 @@ def main():
     computerScore = 0
     
     while playerScore < 100 and computerScore < 100:
-        print("\n------------------------")
         print("Your Score:", playerScore)
         print("Computer Score:", computerScore)
-        print("------------------------\n")
         
         playerScore = playerTurn(playerScore)
         
