@@ -1,0 +1,38 @@
+# INPUT #
+'''
+words
+'''
+# PROCESS #
+'''
+get words
+start from end
+add to a list
+'''
+# OUTPUT #
+'''
+Display reversed list
+'''
+
+def reverser(words):
+    reversed = []
+
+    for i in range(len(words) - 1, -1, -1):
+        reversed.append(words[i])
+    
+    return reversed
+
+def main():
+    words = []
+    
+    for i in range(6):
+        word = input("Enter word " + str(i+1) + ": ")
+        words.append(word)
+    
+    words = reverser(words)
+
+    result = " ".join(words)
+    print("\nREVERSING...")
+    print("\nReversed words:", result)
+
+if __name__ == "__main__":
+    main()
