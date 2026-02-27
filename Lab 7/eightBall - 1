@@ -1,0 +1,55 @@
+# INPUT #
+'''
+question
+if user says quit
+'''
+# PROCESS #
+'''
+select random phrase in list
+'''
+# OUTPUT #
+'''
+output random phrase
+'''
+
+import random
+
+def getResponse():
+    responses = [
+        "It is certain.",
+        "Without a doubt.",
+        "You may rely on it.",
+        "Yes definitely.",
+        "It is decidedly so.",
+        "As I see it, yes.",
+        "Most likely.",
+        "Outlook good.",
+        "Yes.",
+        "Signs point to yes.",
+        "Reply hazy, try again.",
+        "Ask again later.",
+        "Better not tell you now.",
+        "Cannot predict now.",
+        "Concentrate and ask again.",
+        "Don't count on it.",
+        "My reply is no.",
+        "Very doubtful.",
+        "Outlook not so good.",
+        "My sources say no."
+    ]
+
+    return random.choice(responses)
+
+def main():
+    while True:
+        question = input("Ask the magic 8 ball a question: ")
+
+        if question.lower() == "quit":
+            print("Quitting...")
+            break
+        
+        answer = getResponse()
+        print("Magic 8-Ball says:", answer)
+
+if __name__ == "__main__":
+    main()
