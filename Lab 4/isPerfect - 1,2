@@ -1,0 +1,24 @@
+
+# IN
+# number
+# PROC
+# calculate if a perf num
+# OUT
+# true/false
+
+def isPerfect(num):
+    addedDivisors = 0
+    for i in range(1, num):
+        if num % i == 0:
+            addedDivisors += i
+    return addedDivisors == num
+
+def main():
+    number = int(input("Please input a number and see if it is perfect: "))
+    if isPerfect(number) == True:
+        print("Your number is perfect!")
+    else:
+        print("Your number isnt perfect.")
+        
+if __name__ == "__main__":
+    main()

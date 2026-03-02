@@ -1,0 +1,26 @@
+# IN
+# number
+# PROC
+# for loop num times: 
+# OUT
+# say true/false
+
+# input 4 get false input 7 get true
+
+def isPrime(num):
+    trueFalse = []
+    for i in range(2, (num - 1)):
+        if num % i == 0:
+            trueFalse.append(False)
+        else:
+            trueFalse.append(True)
+    #print(trueFalse)
+    if False in trueFalse:
+        print("Your number is not prime")
+    else:
+        print("Your number is prime!")
+def main():
+    number = int(input("Enter a number to get checked if its prime: "))
+    isPrime(number)
+if __name__ == "__main__":
+    main()
