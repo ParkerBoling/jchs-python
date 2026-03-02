@@ -8,6 +8,7 @@
 # input 4 get false input 7 get true
 
 def isPrime(num):
+    # go through each number and if it divides perfectly add true to the list if it doesnt add false
     trueFalse = []
     for i in range(2, (num - 1)):
         if num % i == 0:
@@ -16,11 +17,14 @@ def isPrime(num):
             trueFalse.append(True)
     #print(trueFalse)
     if False in trueFalse:
+        return True
+    else:
+        return False
+def main():
+    number = int(input("Enter a number to get checked if its prime: "))
+    if isPrime(number):
         print("Your number is not prime")
     else:
         print("Your number is prime!")
-def main():
-    number = int(input("Enter a number to get checked if its prime: "))
-    isPrime(number)
 if __name__ == "__main__":
     main()
