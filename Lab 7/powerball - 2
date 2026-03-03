@@ -32,7 +32,7 @@ def getUserNumbers():
     # get first 5 numbers
     while len(userNums) < 5:
         try:
-            num = int(input("Enter number", str(len(userNums) + 1) + ": "))
+            num = int(input(f"Enter number {len(userNums) + 1}: "))
             if num < 1 or num > 69:
                 print("Number must be between 1 and 69")
             elif num in userNums:
@@ -99,7 +99,7 @@ def main():
     winningNums, winningPowerball = generateWinningNumbers()
 
     print("\nYour numbers:", sorted(userNums), "| Powerball:", userPowerball)
-    print("Winning numbers:", sorted(winningNums), "| Powerball", winningPowerball)
+    print("Winning numbers:", sorted(winningNums), "| Powerball:", winningPowerball)
 
     matches, powerballMatch = checkResults(userNums, userPowerball, winningNums, winningPowerball)
 
