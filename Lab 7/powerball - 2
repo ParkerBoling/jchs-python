@@ -1,0 +1,114 @@
+# INPUT #
+'''
+five ints 1-69
+one int 1-26
+'''
+# PROCESS #
+'''
+create empty list for ints
+validate ints
+gen winning ints
+compare numbers to winning
+count how many match
+check if bonus matches
+determine prize
+display prize
+'''
+# OUTPUT #
+'''
+winning numbers
+users numbers
+number of matches
+if bonus matched
+prize won
+'''
+
+import random
+
+def getUserNumbers():
+    userNums = []
+    print("Select 5 unique numbers between 1 and 69: ")
+    
+    # get first 5 numbers
+    while len(userNums) < 5:
+        try:
+            num = int(input("Enter number", str(len(userNums) + 1) + ": "))
+            if num < 1 or num > 69:
+                print("Number must be between 1 and 69")
+            elif num in userNums:
+                print("No duplicates allowed")
+            else:
+                userNums.append(num)
+        except:
+            print("Please enter a valid integer")
+    
+    # get powerball number
+    while True:
+        try:
+            powerball = int(input("Enter your powerball pick (1-26): "))
+            if 1 <= powerball <= 26:
+                break
+            else:
+                print("Powerball must be between 1 and 26")
+        except:
+            print("Please enter a valid integer.")
+    return userNums, powerball
+
+def generateWinningNumbers():
+    winningNums = random.sample(range(1, 70), 5)
+    powerball = random.randint(1, 26)
+    return winningNums, powerball
+
+def checkResults(userNums, userPowerball, winningNums, winningPowerball):
+    matchCount = 0
+
+    for num in userNums:
+        if num in winningNums:
+            matchCount += 1
+    
+    powerballMatch = (userPowerball == winningPowerball)
+
+    return matchCount, powerballMatch
+
+def displayPrize(matches, powerballMatch):
+    print("\nResults:")
+
+    if matches == 5 and powerballMatch:
+        print("JACKPOT! You won the grand prize!")
+    elif matches == 5:
+        print("5 numbers matched! $1,000,000 prize!")
+    elif matches == 4 and powerballMatch:
+        print("4 numbers + powerball! $50,000 prize!")
+    elif matches == 4:
+        print("4 numbers matched! $100!")
+    elif matches == 3 and powerballMatch:
+        print("3 numbers + powerball! $100 prize!")
+    elif matches == 3:
+        print("3 numbers matched! $7 prize!")
+    elif matches == 2 and powerballMatch:
+        print("2 numbers + powerball! $7 prize!")
+    elif matches == 1 and powerballMatch:
+        print("1 number + powerball! $4 prize!")
+    elif matches == 0 and powerballMatch:
+        print("You got the powerball! $4 prize!")
+    else:
+        print("No significant prize this time.")
+
+def main():
+    userNums, userPowerball = getUserNumbers()
+    winningNums, winningPowerball = generateWinningNumbers()
+
+    print("\nYour numbers:", sorted(userNums), "| Powerball:", userPowerball)
+    print("Winning numbers:", sorted(winningNums), "| Powerball", winningPowerball)
+
+    matches, powerballMatch = checkResults(userNums, userPowerball, winningNums, winningPowerball)
+
+    print("You matched", matches, "number(s).")
+
+    if powerballMatch:
+        print("Powerball matched!")
+
+    displayPrize(matches, powerballMatch)
+
+if __name__ == "__main__":
+    main()
