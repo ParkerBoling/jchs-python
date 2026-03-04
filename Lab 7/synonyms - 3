@@ -43,7 +43,7 @@ def createBoard():
         ("end", "finish")
     ]
 
-    words []
+    words = []
     for pair in pairs:
         words.append(pair[0])
         words.append(pair[1])
