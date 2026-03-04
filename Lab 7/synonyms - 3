@@ -80,8 +80,8 @@ def main():
         displayBoard(words, matched)
 
         try:
-            first = int(input("Select a card (1-20): "))
-            second = int(input("Select another card (1-20)"))
+            first = int(input("Select a card (1-20): ")) - 1
+            second = int(input("Select another card (1-20)")) - 1
         except:
             print("Invalid input.")
             continue
