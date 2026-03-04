@@ -1,0 +1,113 @@
+# INPUT #
+'''
+first card num
+second card num
+'''
+# PROCESS #
+'''
+create list of 10 pairs
+create boolean list for matches
+display 4x5 board of ? # ? # = card num
+show word for matched cards
+show word temporarily for selected cards
+get card choice
+get 2nd card choice
+validate if 1-20 or same nums
+show words
+check if matched
+if matched remove from board
+else flip back down
+display win message when all matched
+'''
+# OUTPUT #
+'''
+4x5 board
+words when selected
+message if match or not
+win message
+'''
+
+import random
+
+def createBoard():
+    pairs = [
+        ("happy", "joyful"),
+        ("big", "large"),
+        ("small", "tiny"),
+        ("fast", "quick"),
+        ("smart", "clever"),
+        ("angry", "mad"),
+        ("cold", "chilly"),
+        ("hot", "warm"),
+        ("begin", "start"),
+        ("end", "finish")
+    ]
+
+    words []
+    for pair in pairs:
+        words.append(pair[0])
+        words.append(pair[1])
+    random.shuffle(words)
+    return words, pairs
+
+def displayBoard(words, matched, reveal1=None, reveal2=None):
+    for i in range(20):
+        if matched[i]:
+            display = "     "
+        elif i == reveal1 or i == reveal2:
+            display = words[i].ljust(5)
+        else:
+            display = f"?{i+1}?".ljust(5)
+        
+        print(display, end = " ")
+
+        if (i + 1) % 5 == 0:
+            print()
+    print()
+
+def isMatch(word1, word2, pairs):
+    for pair in pairs:
+        if (word1 in pair) and (word2 in pair):
+            return True
+    return False
+
+def main():
+    words, pairs = createBoard()
+    matched = [False] * 20
+    matchesFound = 0
+    
+    while matchesFound < 10:
+        displayBoard(words, matched)
+
+        try:
+            first = int(input("Select a card (1-20): "))
+            second = int(input("Select another card (1-20)"))
+        except:
+            print("Invalid input.")
+            continue
+        if first < 0 or first > 19 or second < 0 or second > 19:
+            print("Numbers must be between 1 and 20.")
+            continue
+
+        if first == second:
+            print("You must choose two different cards.")
+            continue
+
+        if matched[first] or matched[second]:
+            print("Card already matched.")
+            continue
+        
+        displayBoard(words, matched, first, second)
+
+        if isMatch(words[first], words[second], pairs):
+            print("Match Found")
+            matched[first] = True
+            matched[second] = True
+            matchesFound += 1
+        else:
+            print("No Match Found")
+        
+    print("Congrats! You have matched all pairs.")
+
+if __name__ == "__main__":
+    main()
